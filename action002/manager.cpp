@@ -295,7 +295,7 @@ CScene *CScene::Create(MODE Mode)
 {
 	CScene *pScene = NULL;
 
-	// 2Dオブジェクトの生成
+	// モード設定
 	switch (Mode)
 	{
 	case MODE_TITLE:

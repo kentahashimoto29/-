@@ -8,6 +8,7 @@
 #include "title_obj2D.h"
 #include "object2D.h"
 #include "fade.h"
+#include "sound.h"
 
 #define FEILD_WIDTH_NUM							(16)
 #define FEILD_HEIGHT_NUM						(16)
@@ -49,6 +50,8 @@ CTitle::~CTitle()
 //========================================================
 HRESULT CTitle::Init(void)
 {
+	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_TITLE_BGM);
+
 	m_pWallManager = CWallObjManager::Create();
 
 	m_apTitleObj = CTitle_Obj2D::Create();
@@ -116,6 +119,8 @@ HRESULT CTitle::Init(void)
 //========================================================
 void CTitle::Uninit(void)
 {
+	CManager::GetInstance()->GetSound()->StopSound();
+
 	// NULLチェック
 	if (m_apTitleObj != NULL)
 	{
@@ -166,7 +171,7 @@ void CTitle::Update(void)
 	// マウスの取得
 	CInputMouse *pInputMouse = CManager::GetInstance()->GetInputMouse();
 
-	if (CTitle_Obj2D::GetBlinkingCnt() >= 60 * 2)
+	if (CTitle_Obj2D::GetBlinkingCnt() >= 60 * 1)
 	{
 		if (b != true)
 		{

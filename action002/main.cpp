@@ -10,8 +10,8 @@
 #include "manager.h"
 
 // マクロ定義
-#define WINDOW_NAME				"3Dアクションシューティング"			// ウインドウの名前
-#define ID_BUTTON_FINISH		(101)									// 終了ボタンのID
+#define WINDOW_NAME				"3Dアクション"			// ウインドウの名前
+#define ID_BUTTON_FINISH		(101)					// 終了ボタンのID
 
 // プロトタイプ宣言
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);		// ウインドウプロシージャ

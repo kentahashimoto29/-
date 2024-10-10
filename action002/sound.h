@@ -17,8 +17,12 @@ public:
 	// *****************************************************************************
 	typedef enum
 	{
-		SOUND_LABEL_BGM000 = 0,			// BGM0
-		SOUND_LABEL_SE_SHOT,			// 弾の発射音
+		SOUND_LABEL_TITLE_BGM = 0,		// タイトルBGM
+		SOUND_LABEL_GAME_BGM ,			// ゲームBGM
+		SOUND_LABEL_RESULT_BGM,			// リザルトBGM
+		SOUND_LABEL_SE_START,			// タイトルの決定音
+		SOUND_LABEL_SE_ENEMY_CATHC,		// 敵を捕まえる音
+		SOUND_LABEL_SE_PLAYER_SKILL,	// プレイヤーのスキル音
 		SOUND_LABEL_MAX,
 	} SOUND_LABEL;
 
@@ -54,8 +58,12 @@ private:
 	// サウンドの情報
 	SOUNDINFO g_aSoundInfo[SOUND_LABEL_MAX] =
 	{
-		{ "data/BGM/bgm000.wav", -1 },		// BGM0
-		{ "data/SE/shot000.wav", 0 },	// 射撃音
+		{ "data/BGM/title_BGM.wav", -1 },			// タイトルBGM
+		{ "data/BGM/game_BGM.wav", -1 },			// ゲームBGM
+		{ "data/BGM/result_BGM.wav", -1 },			// リザルトBGM
+		{ "data/SE/title_start_SE.wav", 0 },		// タイトルの決定音
+		{ "data/SE/game_enemy_catch_SE.wav", 0 },	// 敵を捕まえる音
+		{ "data/SE/game_player_skill_SE.wav", 0 },	// プレイヤーのスキル音
 	};
 };
 

@@ -44,7 +44,7 @@ private:
 	CObject2D *m_apObject2D[3];				// タイトルのオブジェクト
 	static int m_nIdxTexture;				// テクスチャの番号
 
-	bool b;
+	bool m_bStart;
 };
 
 #endif

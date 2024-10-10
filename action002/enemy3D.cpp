@@ -287,6 +287,8 @@ bool CEnemy3D::Collision()
 	{
 		if (pPlayer->CollisionEnemy(m_pos, m_VtxMax, m_VtxMin) == true)
 		{
+			CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENEMY_CATHC);
+
 			CGame::GetScore()->AddScore(1);
 
 			Release();

@@ -349,6 +349,8 @@ void CPlayer3D::Update(void)
 
 	if (pInputKeyboard->GetPress(DIK_E) == true && m_nSkillCoolTime >= 300)
 	{
+		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_PLAYER_SKILL);
+
 		m_nSkill = TYPE_ACCEL;
 		m_nSkillTime = 3 * 60;
 		m_nSkillCoolTime = 0;

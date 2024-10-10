@@ -40,6 +40,8 @@ CResult::~CResult()
 //========================================================
 HRESULT CResult::Init(void)
 {
+	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_RESULT_BGM);
+
 	m_apResultObj = CResult_Obj2D::Create();
 	m_pRanking = CRanking::Create();
 
@@ -51,6 +53,8 @@ HRESULT CResult::Init(void)
 //========================================================
 void CResult::Uninit(void)
 {
+	CManager::GetInstance()->GetSound()->StopSound();
+
 	// NULLチェック
 	if (m_apResultObj != NULL)
 	{

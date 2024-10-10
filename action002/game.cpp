@@ -60,6 +60,8 @@ CGame::~CGame()
 //========================================================
 HRESULT CGame::Init(void)
 {
+	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_GAME_BGM);
+
 	m_pTime = CTime::Create();
 
 	m_pPlayer3D = CPlayer3D::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -139,6 +141,8 @@ HRESULT CGame::Init(void)
 //========================================================
 void CGame::Uninit(void)
 {
+	CManager::GetInstance()->GetSound()->StopSound();
+
 	// NULLチェック
 	if (m_pTime != NULL)
 	{

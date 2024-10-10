@@ -22,7 +22,7 @@ CTitle_Obj2D::CTitle_Obj2D()
 	m_Alpha = 0.0f;
 	m_col = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 	BlinkingCnt = 0;
-	b = false;
+	m_bStart = false;
 }
 
 //========================================================
@@ -146,9 +146,21 @@ void CTitle_Obj2D::Update(void)
 		{
 			// ENTERƒƒS
 		case 1:
-			if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
+			if (pInputKeyboard->GetTrigger(DIK_RETURN) == true && m_bStart == false)
 			{
-				int i = 0;
+				CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_START);
+
+				m_bStart = true;
+
+				if (m_Alpha > 0)
+				{
+					m_Alpha = 0.21f;
+				}
+
+				else if (m_Alpha < 0)
+				{
+					m_Alpha = -0.21f;
+				}
 			}
 
 			if ((pInputKeyboard->GetTrigger(DIK_RETURN) == true && pInputKeyboard->GetOldSTrigger(DIK_RETURN) == false) || BlinkingCnt >= 1)
@@ -218,14 +230,14 @@ void CTitle_Obj2D::EnterBlinkingCol(void)
 	{
 		m_col.a = 1.0f;
 
-		m_Alpha = -0.2f;
+		m_Alpha = -0.21f;
 	}
 
 	else if (m_col.a < 0.2f)
 	{
 		m_col.a = 0.2f;
 
-		m_Alpha = 0.2f;
+		m_Alpha = 0.21f;
 	}
 
 	m_col.a += m_Alpha;
